@@ -5,13 +5,14 @@ public enum TipoVeiculo {
     CARRO(10.34),
     CAMINHAO(22.30);
 
-    private double taxaCarro;
+    private double taxaVeiculos;
 
-    public double getTaxaCarro() {
-        return getTaxaCarro();
+    public double getTaxaVeiculos() {
+        return taxaVeiculos;
     }
 
-    TipoVeiculo(double taxaCarro) {
-        this.taxaCarro = taxaCarro;
+
+    TipoVeiculo(double taxaVeiculos) {
+        this.taxaVeiculos = taxaVeiculos;
     }
 }

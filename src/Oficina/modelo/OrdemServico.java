@@ -8,17 +8,17 @@ public abstract class OrdemServico {
     private LocalDate entradaCliente;
     private LocalDate dataPrevistaEntrega;
     private TipoVeiculo tipoVeiculo;
-    private double valorpecas;
-    public static int ordemServico = 0;
+    private double valorPecas;
+    private  static int ordemServico = 0;
 
-    public OrdemServico(String nomeCliente, String telefoneCliente, double valorpecas,TipoVeiculo tipoVeiculo) throws TelefoneInvalidoException {
+    public OrdemServico(String nomeCliente, String telefoneCliente, double valorPecas,TipoVeiculo tipoVeiculo) throws TelefoneInvalidoException {
         if (telefoneCliente == null || telefoneCliente.trim().isEmpty() || telefoneCliente.trim().length() < 11) {
             throw new TelefoneInvalidoException("Telefone inválido: não pode ser vazio e deve ter pelo menos 11 dígitos");
         }
         this.nomeCliente = nomeCliente;
         this.telefoneCliente = telefoneCliente;
         this.tipoVeiculo = tipoVeiculo;
-        this.valorpecas = valorpecas;
+        this.valorPecas = valorPecas;
         this.entradaCliente = LocalDate.now();
         this.dataPrevistaEntrega = this.entradaCliente.plusDays(getDiasParaEntrega());
         ordemServico ++;
@@ -28,8 +28,8 @@ public abstract class OrdemServico {
 
     public abstract double valorTotalObra();
 
-    public double getValorpecas() {
-        return valorpecas;
+    public double getValorPecas() {
+        return valorPecas;
     }
 
     public String getNomeCliente() {
@@ -64,7 +64,7 @@ public abstract class OrdemServico {
                 "Autómovel: " + tipoVeiculo + "\n" +
                 "Entrega Cliente: " + entradaCliente + "\n" +
                 "Entrega Veiculo: " + dataPrevistaEntrega + "\n" +
-                "Quantidade veiculo: " + ordemServico + "\n" +
+                "Ordem veiculo: " + ordemServico + "\n" +
                 "Total a pagar : " + valorTotalObra()+ "\n" +
                 "Dias Entrega: " + getDiasParaEntrega() + "\n" ;
 
